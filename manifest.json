@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "AniList NekoSama Search",
+  "version": "1.0",
+  "description": "Adds a button to AniList anime pages to search on Neko-sama",
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://anilist.co/anime/*"
+      ],
+      "js": [
+        "popup.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ]
+}

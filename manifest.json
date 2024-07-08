@@ -1,22 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "AniList NekoSama Search",
+  "name": "Neko-sama Button",
   "version": "1.0",
-  "description": "Adds a button to AniList anime pages to search on Neko-sama",
-  "icons": {
-    "128": "icon.png"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://anilist.co/anime/*"
-      ],
-      "js": [
-        "popup.js"
-      ]
-    }
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
   ],
   "host_permissions": [
-    "https://anilist.co/*"
-  ]
+    "https://anilist.co/anime/*",
+    "https://corsproxy.io/*",
+    "https://neko-sama.fr/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
 }

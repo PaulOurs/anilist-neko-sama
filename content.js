@@ -3,10 +3,7 @@ function createButton() {
   const button = document.createElement('button');
   button.textContent = 'Neko-sama';
   button.classList.add('neko-sama-button');
-  button.style.cssText = 'padding: 15px; background-color: transparent; border: none; color: #A8A095; cursor: pointer;';
-
-  button.onmouseover = () => button.style.color = '#002EAD';
-  button.onmouseout = () => button.style.color = '#A8A095';
+  button.style.cssText = 'padding: 0 0 0 10px; background-color: darkmagenta; border: none; color: white; width: 130%; height: 35px; border-radius: 3px; font-size: 14px; cursor: pointer;';
 
   return button;
 }
@@ -14,7 +11,7 @@ function createButton() {
 // Function to append the button to the target element
 function appendButton(button) {
   function attemptAppend() {
-    const targetElement = document.querySelector("#app > div.page-content > div > div.header-wrap > div.header > div > div.content > div");
+    const targetElement = document.querySelector("#app > div.page-content > div > div.header-wrap > div.header > div > div.cover-wrap.overlap-banner > div > div")
     if (targetElement) {
       targetElement.appendChild(button);
     } else {

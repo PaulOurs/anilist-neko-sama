@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Neko-sama Button",
+  "name": "AniSama",
   "version": "1.0",
   "permissions": [
     "tabs",

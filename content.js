@@ -26,11 +26,17 @@ async function createNekoSamaButton() {
       const response = await fetch('https://corsproxy.io/?' + encodeURIComponent('https://neko-sama.fr/animes-search-vostfr.json'));
       const data = await response.json();
 
-      const animeData = data.find(
-        anime =>
-          anime.title.toLowerCase().includes(animeTitle.toLowerCase()) ||
-          anime.others.toLowerCase().includes(animeTitle.toLowerCase())
-      );
+      // First, check for an exact match
+      let animeData = data.find(anime => anime.title.toLowerCase() === animeTitle.toLowerCase());
+
+      // If no exact match is found, check for partial matches
+      if (!animeData) {
+        animeData = data.find(
+          anime =>
+            anime.title.toLowerCase().includes(animeTitle.toLowerCase()) ||
+            (anime.others && anime.others.toLowerCase().includes(animeTitle.toLowerCase()))
+        );
+      }
 
       const animeUrl = animeData ? animeData.url : 'https://neko-sama.fr/anime';
       window.open(animeUrl, '_blank');
